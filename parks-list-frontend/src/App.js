@@ -15,6 +15,9 @@ import {
 import ParkList from "./components/ParkList";
 import ParkAdd from "./components/ParkAdd";
 import ParkDetail from "./components/ParkDetail";
+import ParkHome from "./components/ParkHome";
+import About from "./components/About";
+import PackingList from "./components/PackingList";
 
 const App = () => {
   return (
@@ -30,6 +33,21 @@ const App = () => {
         </Navbar>
       </header>
       <Switch>
+        <Route
+          exact
+          path="/"
+          render={(routerProps) => <ParkHome {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/about"
+          render={(routerProps) => <About {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/PackingList"
+          render={(routerProps) => <PackingList {...routerProps} />}
+        />
         <Route
           exact
           path="/parklist"
