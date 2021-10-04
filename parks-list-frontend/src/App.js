@@ -1,26 +1,57 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Route, Link, Switch, withRouter, useHistory } from "react-router-dom";
+import {
+  Navbar,
+  Container,
+  Nav,
+  Card,
+  Button,
+  Table,
+  Tabs,
+  Tab,
+  Figure,
+} from "react-bootstrap";
+import ParkList from "./components/ParkList";
+import ParkAdd from "./components/ParkAdd";
+import ParkDetail from "./components/ParkDetail";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header>
         <Navbar bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Navbar.Brand href="/myparx">MyParx</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link href="/login">Login</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
       </header>
+      <Switch>
+        <Route
+          exact
+          path="/parklist"
+          render={(routerProps) => <ParkList {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/parklist/add"
+          render={(routerProps) => <ParkAdd {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/parklist/:id"
+          render={(routerProps) => <ParkDetail {...routerProps} />}
+        />
+      </Switch>
 
-      <h1>Ground Zero</h1>
+      <footer>
+        <h2>Footer</h2>
+      </footer>
     </div>
   );
-}
+};
 
 export default App;
