@@ -12,7 +12,7 @@ const PackingList = (props) => {
       </div>
 
       <div>
-      {/* box for list of Packing Lists */}
+      {/* dropdown for list of Packing Lists */}
       <h2>Packing Lists</h2>
       </div>
 

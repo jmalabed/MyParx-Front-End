@@ -6,6 +6,13 @@ const NewPackingListItem = (props) => {
       <h1>New Packing List Item</h1>
 
       {/* form to add an item to the packing list */}
+      <form>
+        <label>Item</label>
+        <input type="hidden" value="**TOFIX**packinglist"/>
+        <input type="text"/>
+        {/*this should auto grab id of packing list from parent component */}
+        <input type="submit" />
+      </form>
 
 
 

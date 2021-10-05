@@ -1,5 +1,6 @@
 import React from 'react'
 import NewPackingListItem from './NewPackingListItem'
+import PackingListDetails from './PackingListDetails'
 
 const NewPackingList = (props) => {
   return (
@@ -11,9 +12,12 @@ const NewPackingList = (props) => {
 
 
       {/* second, create an item and add it to the list,
-        this is a component: NewPackingListItem ?*/}
+        this is a component: NewPackingListItem
+        can we hide this component until a newPackingList has been created ?*/}
         <NewPackingListItem />
 
+        {/* third, display the list of items added to this packing list */}
+        <PackingListDetails/>
 
       <button>Return to Main</button>
     </div>
