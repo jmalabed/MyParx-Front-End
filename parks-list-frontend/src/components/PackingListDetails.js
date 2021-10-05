@@ -1,5 +1,16 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
+import {
+  Navbar,
+  Container,
+  Nav,
+  Card,
+  Button,
+  Table,
+  Tabs,
+  Tab,
+  Figure,
+} from "react-bootstrap";
 
 const PackingListDetails = (props) => {
   /* useState to set list of packingItems */
@@ -12,8 +23,8 @@ const PackingListDetails = (props) => {
     try {
       const packingListItems = await fetch("http://localhost:9000/packingListItem")
       const parsedPackingListItems = await packingListItems.json()
-      console.log(parsedPackingListItems)
-      setPackingListItems()
+      // console.log(parsedPackingListItems)
+      setPackingListItems(parsedPackingListItems)
     } catch(err) {
       console.log(err)
     }
@@ -27,6 +38,9 @@ const PackingListDetails = (props) => {
   /* updatePackingListItem
   a function to update PackingListItem model boolean ispacked from true to false, etc */
 
+console.log(packingListItems)
+
+
   return (
     <div>
       <h3>list of items associated with parent packinglist</h3>
@@ -39,12 +53,12 @@ const PackingListDetails = (props) => {
           </tr>
         </thead>
         <tbody>
-        {packingListItems && packingListItems.map(packingListItem=>
-          <tr key={packingListItem._id}>
-            <td>{packingListItem.name}</td>
-            <td>{packingListItem.isPacked}</td>
+        {packingListItems && packingListItems.map(item =>
+          <tr key={item._id}>
+            <td>{item.item}</td>
+            <td>{item.isPacked ? "Yes": "No" }</td>
           </tr>
-          )}
+        )}
         </tbody>
       </table>
     </div>
