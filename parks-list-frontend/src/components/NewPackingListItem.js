@@ -62,7 +62,7 @@ const NewPackingListItem = (props) => {
         <br/><input id="item" name="item" value={input.item} onChange={handleChange}/>
 
         {/*this should auto grab id of packing list from parent component */}
-        <br/><input id="packingList" name="packingList" value={props.listName._id} />
+        <br/><input type="hidden" id="packingList" name="packingList" value={props.listName._id}/>
 
         <br/><input type="submit" value="Add Item"/>
       </form>
