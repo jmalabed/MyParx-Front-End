@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { Link, useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 
 const ParkList = (props) => {
@@ -56,7 +56,9 @@ const ParkList = (props) => {
       <td>{park.people}</td>
       <td>Date of Visit</td>
       <td onClick={() => editPark(park._id)}>
-        <button>Edit</button>
+        <button>
+          <a href={"/parklist/" + park._id + "/edit"}>Edit</a>
+        </button>
       </td>
       <td onClick={() => deletePark(park._id)}>
         <button>Delete</button>
