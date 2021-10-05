@@ -52,6 +52,7 @@ const ParkAdd = (props) => {
 
   return (
     <div>
+      <a href="/parklist">View Favorites</a>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
