@@ -70,7 +70,7 @@ const NewPackingList = (props) => {
         <NewPackingListItem listName={packingList} />
 
         {/* third, display the list of items added to this packing list */}
-        <PackingListDetails/>
+        <PackingListDetails listName={packingList} />
 
       <Button>Return to Main</Button>
     </div>

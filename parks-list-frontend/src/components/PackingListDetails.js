@@ -41,6 +41,8 @@ const PackingListDetails = (props) => {
 
 // console.log("packingListItems from packingListDetails", packingListItems)
 
+console.log("props.listName from PLDetails", props.listName)
+
 
   return (
     <div>
@@ -54,7 +56,7 @@ const PackingListDetails = (props) => {
           </tr>
         </thead>
         <tbody>
-        {packingListItems && packingListItems.map(item =>
+        {packingListItems && packingListItems.filter(item => item._id === props.listName._id).map(item =>
           <tr key={item._id}>
             <td>{item.item}</td>
             <td>{item.isPacked ? "Yes": "No" }</td>
