@@ -12,26 +12,21 @@ import {
   Tab,
   Figure,
 } from "react-bootstrap";
+import NavBar from "./components/NavBar";
+import Slider from './components/Slider'
 import ParkList from "./components/ParkList";
 import ParkAdd from "./components/ParkAdd";
 import ParkDetail from "./components/ParkDetail";
 import ParkHome from "./components/ParkHome";
 import About from "./components/About";
 import PackingList from "./components/PackingList";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <div className="App">
-      <header>
-        <Navbar bg="dark" variant="dark">
-          <Container>
-            <Navbar.Brand href="/myparx">MyParx</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="/login">Login</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-      </header>
+      <NavBar />
+      <Slider />
       <Switch>
         <Route
           exact
@@ -65,9 +60,7 @@ const App = () => {
         />
       </Switch>
 
-      <footer>
-        <h2>Footer</h2>
-      </footer>
+      <Footer />
     </div>
   );
 };

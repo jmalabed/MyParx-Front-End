@@ -8,7 +8,7 @@ export default function ControlledCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8eW9zZW1pdGUlMjBuYXRpb25hbCUyMHBhcmt8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=100"
+          src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8eW9zZW1pdGUlMjBuYXRpb25hbCUyMHBhcmt8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=100"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -19,7 +19,7 @@ export default function ControlledCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src='https://images.unsplash.com/photo-1520039836429-c64bfbe2a64c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9obyUyMG5hdGlvbmFsJTIwcGFya3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=100'
+          src='https://images.unsplash.com/photo-1520039836429-c64bfbe2a64c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eW9obyUyMG5hdGlvbmFsJTIwcGFya3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=100'
           alt="Second slide"
         />
 
@@ -31,7 +31,7 @@ export default function ControlledCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://images.unsplash.com/photo-1452800185063-6db5e12b8e2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=100"
+          src="https://images.unsplash.com/photo-1452800185063-6db5e12b8e2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=100"
           alt="Denali National Park and Preserve"
         />
 
