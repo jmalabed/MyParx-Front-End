@@ -2,23 +2,28 @@ import { useState, useEffect } from "react";
 
 const ParkAddListItem = (props) => {
   const [form, setForm] = useState({});
+
   const handleSubmit = async (e) => {
+    console.log({ name: props.parkprop.name });
+    setForm({ name: props.parkprop.name });
+
     e.preventDefault();
-    console.log(form);
-    setForm({ [e.target.name]: e.target.value });
-    console.log(form);
     try {
-      await fetch("http://localhost:9000/bucketList", {
+      const config = {
         body: JSON.stringify(form),
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-      });
+      };
+      const createdPark = await fetch(
+        "http://localhost:9000/bucketList",
+        config
+      );
+      const parsedPark = await createdPark.json();
+      console.log(parsedPark);
     } catch (err) {
       console.log(err);
-    } finally {
-      console.log("success");
     }
   };
 

@@ -19,7 +19,7 @@ const ParkAdd = (props) => {
       );
       const parsedParks = await allParks.json();
       console.log(parsedParks);
-      // how to talk to Nat Park API???? Singular
+      // how to talk to Nat Park API????
       // console.log(parsedParks.data[0]);
       // console.log(parsedParks.data[0].name);
       // console.log(parsedParks.data[0].description.split(".")[0]);
@@ -30,20 +30,16 @@ const ParkAdd = (props) => {
   };
 
   const handleChange = (e) => {
-    console.log(e);
-    console.log([e.target.name]);
-    console.log(([e.target.name]: e.target.value));
     setSearchQuery({ ...searchQuery, [e.target.name]: e.target.value });
-    console.log(searchQuery);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(searchQuery);
     getParks();
-    setParks(
-      parks.filter((park) => park.name.toLowerCase().includes(searchQuery))
-    );
+    // setParks(
+    //   parks.filter((park) => park.name.toLowerCase().includes(searchQuery))
+    // );
   };
 
   // When page loads, the use effect will call the fetch function to the national park api and save.
