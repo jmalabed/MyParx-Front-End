@@ -1,23 +1,12 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import {
-  Navbar,
-  Container,
-  Nav,
-  Card,
-  Button,
-  Table,
-  Tabs,
-  Tab,
-  Figure,
-} from "react-bootstrap";
 
 const NewPackingListItem = (props) => {
 
   /* useState / useEffect ? */
   const [input, setInput] = useState({
     item: '',
-    packingList: '615b94159d9d32b959053e5b'
+    packingList: '615b94079d9d32b959053e59'
   })
 
   /* function to find packingList id/name? to pass through via a hidden field */
@@ -55,6 +44,13 @@ const NewPackingListItem = (props) => {
     newPackingListItem(input)
   }
 
+  /* useEffect to only run query once */
+  useEffect( ()=> {
+    newPackingListItem()
+  }, [])
+
+  console.log("from newpackinglistitem props > ", props.listName._id)
+
   return (
     <div>
       <h2>New Packing List Item</h2>
@@ -62,7 +58,7 @@ const NewPackingListItem = (props) => {
       {/* form to add an item to the packing list */}
       <form onSubmit={handleSubmit}>
         <label htmlFor="item">Item</label>
-        <input id="item" name="item" value={input.item} onChange={handleChange}/>
+        <br/><input id="item" name="item" value={input.item} onChange={handleChange}/>
 
         {/*this should auto grab id of packing list from parent component */}
 

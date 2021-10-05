@@ -13,6 +13,8 @@ const NewPackingList = (props) => {
     name: '',
   })
 
+  const [packingList, setPackingList] = useState({})
+
   /* function to handleChange to input field and update state */
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value})
@@ -32,6 +34,8 @@ const NewPackingList = (props) => {
       const createdPackingList = await fetch("http://localhost:9000/packingList", configs)
       const parsedPackingList = await createdPackingList.json()
       console.log("parsed list in new f", parsedPackingList)
+      setPackingList(parsedPackingList)
+      // return parsedPackingList
       // props.history.push('/packingListItem')
       // props.setBooks([...props.books, parsedBook])
       } catch(err) {
@@ -63,7 +67,7 @@ const NewPackingList = (props) => {
       {/* second, create an item and add it to the list,
         this is a component: NewPackingListItem
         can we hide this component until a newPackingList has been created ?*/}
-        <NewPackingListItem />
+        <NewPackingListItem listName={packingList} />
 
         {/* third, display the list of items added to this packing list */}
         <PackingListDetails/>
