@@ -6,7 +6,6 @@ const NewPackingListItem = (props) => {
   /* useState / useEffect ? */
   const [input, setInput] = useState({
     item: '',
-    packingList: '615b94079d9d32b959053e59'
   })
 
   /* function to find packingList id/name? to pass through via a hidden field */
@@ -15,6 +14,7 @@ const NewPackingListItem = (props) => {
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value})
     console.log("input", input)
+    // console.log(props.listName._id)
   }
 
   /* function to create packingListItem */
@@ -41,7 +41,8 @@ const NewPackingListItem = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log("input from handleSubmit", input)
-    newPackingListItem(input)
+    /* also add prop to pass props.listName._id */
+    newPackingListItem({...input, ...{packingList: props.listName._id}})
   }
 
   /* useEffect to only run query once */
@@ -61,7 +62,7 @@ const NewPackingListItem = (props) => {
         <br/><input id="item" name="item" value={input.item} onChange={handleChange}/>
 
         {/*this should auto grab id of packing list from parent component */}
-
+        <br/><input id="packingList" name="packingList" value={props.listName._id} />
 
         <br/><input type="submit" value="Add Item"/>
       </form>

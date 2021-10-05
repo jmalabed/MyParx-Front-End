@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
+import {BrowserRouter as Router} from 'react-router-dom'
 import {
   Navbar,
   Container,
@@ -38,7 +39,7 @@ const PackingListDetails = (props) => {
   /* updatePackingListItem
   a function to update PackingListItem model boolean ispacked from true to false, etc */
 
-console.log(packingListItems)
+// console.log("packingListItems from packingListDetails", packingListItems)
 
 
   return (

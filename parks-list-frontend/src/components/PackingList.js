@@ -1,7 +1,21 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  Navbar,
+  Container,
+  Nav,
+  Card,
+  Button,
+  Table,
+  Tabs,
+  Tab,
+  Figure,
+} from "react-bootstrap";
 
 const PackingList = (props) => {
+
+
+
   return (
     <div>
       <h1>PackingList</h1>
@@ -18,10 +32,10 @@ const PackingList = (props) => {
 
       <div>
       {/* Button to link to Add packingListItems page*/}
-      <button>Create New Packing List</button>
+      <Button>Create New Packing List</Button>
       </div>
 
-      <button>Return to Main</button>
+      <Button>Return to Main</Button>
     </div>
   )
 };
