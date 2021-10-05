@@ -9,6 +9,7 @@ const ParkAddListItem = (props) => {
 
     e.preventDefault();
     try {
+      console.log(form);
       const config = {
         body: JSON.stringify(form),
         method: "POST",

@@ -17,7 +17,52 @@ const ParkList = (props) => {
 
   useEffect(() => {
     getParks();
-  });
+  }, []);
+
+  const editPark = async (id) => {
+    const updatedPark = await fetch(`http://localhost:9000/bucketList/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({}),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  };
+
+  const deletePark = async (id) => {
+    try {
+      const deletedPark = await fetch(
+        "http://localhost:9000/bucketList/" + id,
+        {
+          method: "DELETE",
+        }
+      );
+      const parsedPark = await deletedPark.json();
+      console.log(parsedPark);
+      const updatedParks = parks.filter((park) => park._id !== parsedPark._id);
+      setParks(updatedParks);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const parkRow = parks.map((park) => (
+    <tr>
+      <td>{park.name}</td>
+      <td>state</td>
+      <td>PackingList from Jess Code</td>
+      <td>{park.visited ? "Yes" : "No"}</td>
+      <td>Pets</td>
+      <td>{park.people}</td>
+      <td>Date of Visit</td>
+      <td onClick={() => editPark(park._id)}>
+        <button>Edit</button>
+      </td>
+      <td onClick={() => deletePark(park._id)}>
+        <button>Delete</button>
+      </td>
+    </tr>
+  ));
 
   return (
     <div>
@@ -30,25 +75,13 @@ const ParkList = (props) => {
             <th>PackingList</th>
             <th>Visited</th>
             <th>Pets</th>
-            <th>Companions</th>
+            <th>People</th>
             <th>Date of Visit</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>ParkName</td>
-            <td>State</td>
-            <td>PackingList</td>
-            <td>Visited</td>
-            <td>Pets</td>
-            <td>Companions</td>
-            <td>Date of Visit</td>
-            <td>Edit</td>
-            <td>Delete</td>
-          </tr>
-        </tbody>
+        <tbody>{parkRow}</tbody>
       </Table>
     </div>
   );
