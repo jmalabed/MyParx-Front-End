@@ -43,3 +43,13 @@ ul {
 .hide {
   display: none;
 }
+
+.top-gap {
+  margin-top: 4rem;
+}
+
+.about-img {
+  max-height: 400px;
+  object-fit: cover;
+  object-position: top;
+}

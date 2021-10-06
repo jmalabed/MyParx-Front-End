@@ -27,7 +27,7 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <Slider />
+      <Slider className="top-gap" />
       <Switch>
         <Route
           exact
