@@ -13,10 +13,15 @@ PackingListDetails
 */
 
 const MakeList = (props) => {
-const location = useLocation()
-// const {item} = location.state
 
-console.log("location", location)
+const currentId = props.match.params.id
+
+console.log("currentId from params", currentId)
+// const location = useLocation()
+// const {item} = location.state
+// console.log("location", location)
+
+
 
 // https://www.youtube.com/watch?v=RUFxmAjbNbg watched this video i don't know why item is still returning undefined
 // const currentId = item
@@ -49,7 +54,7 @@ console.log("location", location)
 
       <PackingListDetails  />
 
-      <Button href='/newPackingListItem'>Add item</Button>
+      <Button href={`/PackingList/${currentId}/add`}>Add item</Button>
 
 
     </div>

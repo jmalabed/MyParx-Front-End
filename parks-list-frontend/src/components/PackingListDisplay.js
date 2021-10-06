@@ -67,7 +67,7 @@ useEffect( ()=> {
           <tr key={item._id}>
             <td>{item.name}</td>
             <td>
-              <Link to={'/MakeList/' +item._id} item={item} >Manage List</Link>
+              <Link to={'/PackingList/' +item._id} item={item} >View List</Link>
             </td>
           </tr>
         )}

@@ -66,6 +66,16 @@ const App = () => {
         />
         <Route
           exact
+          path="/PackingList/:id"
+          render={(routerProps) => <MakeList {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/PackingList/:id/add"
+          render={(routerProps) => <NewPackingListItem {...routerProps} />}
+        />
+        <Route
+          exact
           path="/PackingListDisplay"
           render={(routerProps) => <PackingListDisplay {...routerProps} />}
         />
