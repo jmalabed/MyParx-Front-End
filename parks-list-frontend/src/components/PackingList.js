@@ -1,39 +1,27 @@
 import React from 'react'
+import {useState, useEffect} from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import {
-  Navbar,
   Container,
-  Nav,
+  Row,
+  Col,
   Card,
   Button,
   Table,
-  Tabs,
-  Tab,
-  Figure,
 } from "react-bootstrap";
+import NewPackingList from './NewPackingList'
+import PackingListDisplay from './PackingListDisplay'
 
 const PackingList = (props) => {
 
 
-
   return (
+
     <div>
-      <h1>PackingList</h1>
+      <h1>Manage Packing Lists</h1>
 
-      <div>
-      {/* box for list of bucketList parks */}
-      <h2>Parks</h2>
-      </div>
-
-      <div>
-      {/* dropdown for list of Packing Lists */}
-      <h2>Packing Lists</h2>
-      </div>
-
-      <div>
-      {/* Button to link to Add packingListItems page*/}
-      <Button>Create New Packing List</Button>
-      </div>
+      <NewPackingList />
+      <PackingListDisplay />
 
       <Button>Return to Main</Button>
     </div>
