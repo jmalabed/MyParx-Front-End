@@ -12,7 +12,7 @@ const ParkEdit = (props) => {
   const getPark = async () => {
     try {
       const id = props.match.params.id;
-      const foundPark = await fetch("http://localhost:9000/bucketList/" + id);
+      const foundPark = await fetch("https://project-two-backend.herokuapp.com/bucketList/" + id);
       if (foundPark.status === 200) {
         const parsedPark = await foundPark.json();
         setPark(parsedPark);
@@ -41,7 +41,7 @@ const ParkEdit = (props) => {
         },
       };
       const updatedPark = await fetch(
-        "http://localhost:9000/bucketList/" + id,
+        "https://project-two-backend.herokuapp.com/bucketList/" + id,
         config
       );
       const parsedPark = await updatedPark.json();

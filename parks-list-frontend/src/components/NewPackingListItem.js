@@ -29,7 +29,7 @@ const NewPackingListItem = (props) => {
           "Content-Type": "application/json"
         }
       }
-      const createdPackingListItem = await fetch("http://localhost:9000/packingListItem", configs)
+      const createdPackingListItem = await fetch("https://project-two-backend.herokuapp.com/packingListItem", configs)
       const parsedPackingListItem = await createdPackingListItem.json()
       console.log("parsed item in new f", parsedPackingListItem)
       // props.history.push('/packingListItem')

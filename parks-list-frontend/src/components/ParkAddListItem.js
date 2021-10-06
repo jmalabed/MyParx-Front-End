@@ -18,7 +18,7 @@ const ParkAddListItem = (props) => {
         },
       };
       const createdPark = await fetch(
-        "http://localhost:9000/bucketList",
+        "https://project-two-backend.herokuapp.com/bucketList",
         config
       );
       const parsedPark = await createdPark.json();
