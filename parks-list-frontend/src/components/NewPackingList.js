@@ -1,10 +1,6 @@
 import React from 'react'
-import NewPackingListItem from './NewPackingListItem'
-import PackingListDetails from './PackingListDetails'
-import {
-  Button,
-} from "react-bootstrap";
-import {useState, useEffect} from 'react'
+// import { Button,} from "react-bootstrap";
+import {useState} from 'react'
 
 const NewPackingList = (props) => {
 
@@ -36,7 +32,7 @@ const NewPackingList = (props) => {
       console.log("parsed list in new f", parsedPackingList)
       setPackingList(parsedPackingList)
       // return parsedPackingList
-      // props.history.push('/packingListItem')
+      props.history.push('/packingList')
       // props.setBooks([...props.books, parsedBook])
       } catch(err) {
         console.log(err)
@@ -52,27 +48,18 @@ const NewPackingList = (props) => {
 
   return (
     <div>
-      <h1>New Packing List</h1>
-
       <div>
       {/* first, create name of packing list
         this is a form to create the Name of a packing list */}
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Name of packing list</label>
+          <label htmlFor="name">New packing list</label>
           <br/><input id="name" name="name" value={input.name} onChange={handleChange} />
           <input type="submit" value="Create" />
         </form>
       </div>
 
-      {/* second, create an item and add it to the list,
-        this is a component: NewPackingListItem
-        can we hide this component until a newPackingList has been created ?*/}
-        <NewPackingListItem listName={packingList} />
+      {/* onSubmit should update state of PackingList */}
 
-        {/* third, display the list of items added to this packing list */}
-        <PackingListDetails listName={packingList} />
-
-      <Button>Return to Main</Button>
     </div>
   )
 };

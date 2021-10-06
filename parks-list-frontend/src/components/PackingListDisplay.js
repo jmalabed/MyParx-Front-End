@@ -1,7 +1,13 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import NewPackingList from './NewPackingList'
+import { Link } from "react-router-dom";
+import {
+  Button,
+  Table,
+  Figure,
+} from "react-bootstrap";
+
+
 
 const PackingList = (props) => {
   /* useState to set list of packingItems */
@@ -29,13 +35,11 @@ useEffect( ()=> {
   return (
 
     <div>
-
-
       {/* table of Packing Lists
         with EDIT button on each
         EDIT goes to NewPackingListItem page */}
-      <h2>Packing Lists</h2>
-      <table>
+
+      <Table>
         <thead>
           <tr>
             <th>Packing List Name</th>
@@ -46,14 +50,15 @@ useEffect( ()=> {
         {packingLists && packingLists.map(item =>
           <tr key={item._id}>
             <td>{item.name}</td>
-            <td>EDIT</td>
+            <td>
+              <Link to='/MakeList' item={item}>Add Items to List</Link>
+            </td>
           </tr>
         )}
         </tbody>
-      </table>
+      </Table>
 
-
-
+      <Button href='/packingList/new'>Add packing list</Button>
 
     </div>
   )

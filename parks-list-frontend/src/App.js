@@ -19,7 +19,10 @@ import ParkHome from "./components/ParkHome";
 import About from "./components/About";
 import PackingList from "./components/PackingList";
 import NewPackingList from "./components/NewPackingList";
-import NewPackingListItem from "./components/NewPackingListItem.js"
+import PackingListDisplay from "./components/PackingListDisplay";
+import MakeList from "./components/MakeList"
+import NewPackingListItem from "./components/NewPackingListItem"
+
 
 const App = () => {
   return (
@@ -52,13 +55,23 @@ const App = () => {
         />
         <Route
           exact
-          path="/NewPackingList"
+          path="/packingList/new"
           render={(routerProps) => <NewPackingList {...routerProps} />}
         />
         <Route
           exact
           path="/NewPackingListItem"
           render={(routerProps) => <NewPackingListItem {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/MakeList"
+          render={(routerProps) => <MakeList {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/PackingListDisplay"
+          render={(routerProps) => <PackingListDisplay {...routerProps} />}
         />
         <Route
           exact

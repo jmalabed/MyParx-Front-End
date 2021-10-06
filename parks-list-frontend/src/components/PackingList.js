@@ -1,14 +1,8 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import {
-  Container,
-  Row,
-  Col,
-  Card,
   Button,
-  Table,
 } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import NewPackingList from './NewPackingList'
 import PackingListDisplay from './PackingListDisplay'
 
@@ -20,10 +14,13 @@ const PackingList = (props) => {
     <div>
       <h1>Manage Packing Lists</h1>
 
-      <NewPackingList />
-      <PackingListDisplay />
-
-      <Button>Return to Main</Button>
+        <Router>
+          <Switch>
+            <Route exact path="/packingList/new" render={(routerProps)=> <NewPackingList {...routerProps}/> } />
+            <Route exact path="/packingList" component={PackingListDisplay} />
+          </Switch>
+        </Router>
+        <br/><Button>Return to Main</Button>
     </div>
   )
 };

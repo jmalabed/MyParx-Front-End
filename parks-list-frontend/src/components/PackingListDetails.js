@@ -1,17 +1,7 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
-import {BrowserRouter as Router} from 'react-router-dom'
-import {
-  Navbar,
-  Container,
-  Nav,
-  Card,
-  Button,
-  Table,
-  Tabs,
-  Tab,
-  Figure,
-} from "react-bootstrap";
+// import {BrowserRouter as Router} from 'react-router-dom'
+// import { Container } from "react-bootstrap";
 
 const PackingListDetails = (props) => {
   /* useState to set list of packingItems */
