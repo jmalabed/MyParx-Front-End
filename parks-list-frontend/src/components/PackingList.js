@@ -1,9 +1,10 @@
 import React from 'react'
 import {
-  Button,
+  Container,
+  Col,
+  Row,
 } from "react-bootstrap";
 import PackingListDisplay from './PackingListDisplay'
-import ParkList from './ParkList'
 
 const PackingList = (props) => {
 
@@ -11,11 +12,17 @@ const PackingList = (props) => {
   return (
 
     <div>
-      <h1>Manage Packing Lists</h1>
+      <br/>
+        <Container>
+          <Row className="justify-content-md-center">
+            <Col xs md lg ="auto">
+              <h2>List of available packing lists</h2>
+              <PackingListDisplay />
+            </Col>
+          </Row>
+        </Container>
 
-      <ParkList/>
-      <PackingListDisplay />
-
+      <br/>
     </div>
   )
 };
