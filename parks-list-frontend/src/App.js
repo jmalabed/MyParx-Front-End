@@ -1,17 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Route, Link, Switch, withRouter, useHistory } from "react-router-dom";
-import {
-  Navbar,
-  Container,
-  Nav,
-  Card,
-  Button,
-  Table,
-  Tabs,
-  Tab,
-  Figure,
-} from "react-bootstrap";
 import NavBar from "./components/NavBar";
 import Slider from './components/Slider'
 import ParkList from "./components/ParkList";
@@ -26,6 +15,7 @@ import NewPackingList from "./components/NewPackingList";
 import PackingListDisplay from "./components/PackingListDisplay";
 import MakeList from "./components/MakeList"
 import NewPackingListItem from "./components/NewPackingListItem"
+import Oops from "./components/Oops";
 
 const App = () => {
   return (
@@ -88,6 +78,7 @@ const App = () => {
           path="/parklist/:id/edit"
           render={(routerProps) => <ParkEdit {...routerProps} />}
         />
+        <Route path="/" render={(routerProps) => <Oops {...routerProps} />} />
       </Switch>
 
       <Footer />
