@@ -18,7 +18,7 @@ const PackingList = (props) => {
 /* function for getPackingLists */
 const getPackingLists = async() => {
   try {
-    const packingLists = await fetch("http://localhost:9000/packingList")
+    const packingLists = await fetch("https://project-two-backend.herokuapp.com/packingList")
     const parsedPackingLists = await packingLists.json()
     // console.log(parsedPackingListItems)
     setPackingLists(parsedPackingLists)
@@ -32,7 +32,7 @@ const getPackingList = async(id) => {
   try {
     const id = props.match.props.id
     console.log(id)
-    const packingList = await fetch(`http://localhost:9000/packingList/${id}`)
+    const packingList = await fetch(`https://project-two-backend.herokuapp.com/packingList/${id}`)
     const parsedPackingList = await packingList.json()
     // console.log(parsedPackingListItems)
     setPackingList(parsedPackingList)
