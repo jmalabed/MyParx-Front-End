@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function NarBar() {
     return (
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" fixed="top"
+      >
         <Container>
           <Navbar.Brand as={Link} to="/">
             Navbar

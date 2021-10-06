@@ -43,3 +43,7 @@ ul {
 .hide {
   display: none;
 }
+
+.top-gap {
+  margin-top: 4rem;
+}

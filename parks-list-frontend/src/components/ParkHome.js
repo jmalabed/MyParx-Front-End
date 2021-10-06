@@ -3,7 +3,7 @@ import { Stack } from "react-bootstrap";
 
 const ParkHome = (props) => {
   return (
-    <Stack gap={4}>
+    <Stack gap={4} >
       <div className="bg-light border">
         Meet The DeplAyerz
         <br />
