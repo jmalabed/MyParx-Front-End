@@ -21,7 +21,7 @@ const MakeList = (props) => {
 
   const getPackingList = async (id) => {
     try {
-      const foundPackingList = await fetch("http://localhost:9000/packingList/"+id)
+      const foundPackingList = await fetch("https://project-two-backend.herokuapp.com/packingList/"+id)
       const parsedPackingList = await foundPackingList.json()
       setPackingListId(parsedPackingList)
       // console.log("parsedPL from getPackingList function", parsedPackingList)

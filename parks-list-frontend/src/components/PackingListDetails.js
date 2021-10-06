@@ -21,7 +21,7 @@ const PackingListDetails = (props) => {
   packinglist id comes from parent componenet NewPackingList */
   const getPackingListItems = async() => {
     try {
-      const packingListItems = await fetch("http://localhost:9000/packingListItem")
+      const packingListItems = await fetch("https://project-two-backend.herokuapp.com/packingListItem")
       const parsedPackingListItems = await packingListItems.json()
       // console.log(parsedPackingListItems)
       setPackingListItems(parsedPackingListItems)
