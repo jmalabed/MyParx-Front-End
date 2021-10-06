@@ -1,48 +1,85 @@
-import React from 'react'
-import {useState,useEffect} from 'react'
+import React from "react";
+import { useState, useEffect } from "react";
 // import {BrowserRouter as Router} from 'react-router-dom'
 import { Table, Row, Col, Container } from "react-bootstrap";
 
 const PackingListDetails = (props) => {
-
   // do a get request for all list items associated with X packingList
   // getFilteredItems
   // if item.packingList == PROPS??
 
-  console.log("props from pL details", props)
-
+  console.log("props from pL details", props);
 
   /* useState to set list of packingItems */
-  const [packingListItems, setPackingListItems] = useState([])
-
+  const [packingListItems, setPackingListItems] = useState([]);
 
   /*  getPackingListItems
   function to query backend for list of items associated with packinglist.
   packinglist id comes from parent componenet NewPackingList */
-  const getPackingListItems = async() => {
+  const getPackingListItems = async () => {
     try {
-      const packingListItems = await fetch("http://localhost:9000/packingListItem")
-      const parsedPackingListItems = await packingListItems.json()
+      const packingListItems = await fetch(
+        "http://localhost:9000/packingListItem"
+      );
+      const parsedPackingListItems = await packingListItems.json();
       // console.log(parsedPackingListItems)
-      setPackingListItems(parsedPackingListItems)
-    } catch(err) {
-      console.log(err)
+      setPackingListItems(parsedPackingListItems);
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
+
+  const deleteItem = async (id) => {
+    console.log("delete function");
+    try {
+      const deletedItem = await fetch(
+        "http://localhost:9000/packingListItem/" + id,
+        {
+          method: "DELETE",
+        }
+      );
+      const parsedItem = await deletedItem.json();
+      console.log(parsedItem);
+      const updatedItems = packingListItems.filter(
+        (item) => item._id !== parsedItem._id
+      );
+      // set packing list items as items - parsedItem
+      setPackingListItems(updatedItems);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   /* useEffect to only run query once */
-  useEffect( ()=> {
-    getPackingListItems()
-  }, [])
+  useEffect(() => {
+    getPackingListItems();
+  }, []);
 
   /* updatePackingListItem
   a function to update PackingListItem model boolean ispacked from true to false, etc */
 
-  console.log("packingListItems", packingListItems)
+  console.log("packingListItems", packingListItems);
+
+  const packingListItemVar =
+    packingListItems &&
+    packingListItems
+      .filter((item) => item.packingList === props.packingList._id)
+      .map((item) => (
+        <tr key={item._id}>
+          <td>{item.item}</td>
+          <td>{item.isPacked ? "Yes" : "No"}</td>
+          <td>
+            <button>Edit</button>
+          </td>
+          <td>
+            <button onClick={() => deleteItem(item._id)}>X</button>
+          </td>
+        </tr>
+      ));
 
   return (
     <div>
-      <br/>
+      <br />
       <h4>PackingListDetails</h4>
 
       <Container>
@@ -53,24 +90,18 @@ const PackingListDetails = (props) => {
                 <tr>
                   <th>item</th>
                   <th>packed</th>
+                  <th>edit</th>
+                  <th>delete</th>
                 </tr>
               </thead>
-              <tbody>
-              {packingListItems && packingListItems.filter(item => item.packingList === props.packingList._id).map(item =>
-                <tr key={item._id}>
-                  <td>{item.item}</td>
-                  <td>{item.isPacked ? "Yes": "No" }</td>
-                </tr>
-              )}
-              </tbody>
+              <tbody>{packingListItemVar}</tbody>
             </Col>
           </Row>
         </Table>
       </Container>
-    <br/>
+      <br />
     </div>
-  )
-}
+  );
+};
 
-
-export default PackingListDetails
+export default PackingListDetails;
