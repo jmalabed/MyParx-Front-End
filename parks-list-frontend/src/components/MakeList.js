@@ -15,7 +15,7 @@ PackingListDetails
 const MakeList = (props) => {
 
   const currentId = props.match.params.id
-  console.log("currentId from params", currentId)
+  // console.log("currentId from params", currentId)
 
   const [packingListId, setPackingListId] = useState({})
 
@@ -24,7 +24,7 @@ const MakeList = (props) => {
       const foundPackingList = await fetch("http://localhost:9000/packingList/"+id)
       const parsedPackingList = await foundPackingList.json()
       setPackingListId(parsedPackingList)
-      console.log("parsedPL from getPackingList function", parsedPackingList)
+      // console.log("parsedPL from getPackingList function", parsedPackingList)
   } catch (error) {
       console.log(error)
     }
@@ -32,7 +32,7 @@ const MakeList = (props) => {
 
   useEffect(()=> {
     getPackingList(currentId)
-    console.log("is your useEffect running better catch it")
+    // console.log("is your useEffect running better catch it")
   }, [])
 
 
@@ -42,7 +42,7 @@ const MakeList = (props) => {
     <h2>{packingListId.name}</h2>
     <br/>
 
-      <PackingListDetails  />
+      <PackingListDetails packingList={packingListId} />
 
       <Button href={`/PackingList/${currentId}/add`}>Add item</Button>
 
