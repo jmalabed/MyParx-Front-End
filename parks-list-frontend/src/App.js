@@ -23,6 +23,10 @@ import PackingList from "./components/PackingList";
 import Footer from "./components/Footer";
 import ParkEdit from "./components/ParkEdit";
 import Oops from "./components/Oops";
+import NewPackingList from "./components/NewPackingList";
+import PackingListDisplay from "./components/PackingListDisplay";
+import MakeList from "./components/MakeList"
+import NewPackingListItem from "./components/NewPackingListItem"
 
 const App = () => {
   return (
@@ -44,6 +48,31 @@ const App = () => {
           exact
           path="/PackingList"
           render={(routerProps) => <PackingList {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/packingList/new"
+          render={(routerProps) => <NewPackingList {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/NewPackingListItem"
+          render={(routerProps) => <NewPackingListItem {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/PackingList/:id"
+          render={(routerProps) => <MakeList {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/PackingList/:id/add"
+          render={(routerProps) => <NewPackingListItem {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/PackingListDisplay"
+          render={(routerProps) => <PackingListDisplay {...routerProps} />}
         />
         <Route
           exact
