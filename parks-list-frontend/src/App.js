@@ -11,11 +11,6 @@ import About from "./components/About";
 import PackingList from "./components/PackingList";
 import Footer from "./components/Footer";
 import ParkEdit from "./components/ParkEdit";
-import NewPackingList from "./components/NewPackingList";
-import PackingListDisplay from "./components/PackingListDisplay";
-import MakeList from "./components/MakeList"
-import NewPackingListItem from "./components/NewPackingListItem"
-import Oops from "./components/Oops";
 
 const App = () => {
   return (
@@ -50,8 +45,13 @@ const App = () => {
         />
         <Route
           exact
-          path="/MakeList"
+          path="/PackingList/:id"
           render={(routerProps) => <MakeList {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/PackingList/:id/add"
+          render={(routerProps) => <NewPackingListItem {...routerProps} />}
         />
         <Route
           exact

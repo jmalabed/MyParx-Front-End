@@ -5,14 +5,16 @@ import { Table, Row, Col, Container } from "react-bootstrap";
 
 const PackingListDetails = (props) => {
 
+  // do a get request for all list items associated with X packingList
+  // getFilteredItems
+  // if item.packingList == PROPS??
 
-  // console.log("props.listName from PLDetails", props.listName)
+  console.log("props from pL details", props)
 
 
   /* useState to set list of packingItems */
   const [packingListItems, setPackingListItems] = useState([])
 
-  console.log("packingListItems", packingListItems)
 
   /*  getPackingListItems
   function to query backend for list of items associated with packinglist.
@@ -36,8 +38,7 @@ const PackingListDetails = (props) => {
   /* updatePackingListItem
   a function to update PackingListItem model boolean ispacked from true to false, etc */
 
-// console.log("packingListItems from packingListDetails", packingListItems)
-
+  console.log("packingListItems", packingListItems)
 
   return (
     <div>
@@ -48,20 +49,20 @@ const PackingListDetails = (props) => {
         <Table>
           <Row className="justify-content-md-center">
             <Col sm md lg="auto">
-          {/*    <thead>
+              <thead>
                 <tr>
                   <th>item</th>
                   <th>packed</th>
                 </tr>
               </thead>
               <tbody>
-              {packingListItems && packingListItems.filter(item => item._id === props.listName._id).map(item =>
+              {packingListItems && packingListItems.filter(item => item.packingList === props.packingList._id).map(item =>
                 <tr key={item._id}>
                   <td>{item.item}</td>
                   <td>{item.isPacked ? "Yes": "No" }</td>
                 </tr>
               )}
-              </tbody> */}
+              </tbody>
             </Col>
           </Row>
         </Table>
