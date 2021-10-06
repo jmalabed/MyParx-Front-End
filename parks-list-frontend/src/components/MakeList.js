@@ -14,42 +14,32 @@ PackingListDetails
 
 const MakeList = (props) => {
 
-const currentId = props.match.params.id
+  const currentId = props.match.params.id
+  console.log("currentId from params", currentId)
 
-console.log("currentId from params", currentId)
-// const location = useLocation()
-// const {item} = location.state
-// console.log("location", location)
-
-
-
-// https://www.youtube.com/watch?v=RUFxmAjbNbg watched this video i don't know why item is still returning undefined
-// const currentId = item
-// console.log("props", currentId)
-
-
-
-/*
   const [packingListId, setPackingListId] = useState({})
 
   const getPackingList = async (id) => {
-    const foundPackingList = await fetch("http://localhost:9000/packingList/")
-    const parsedPackingList = await foundPackingList.json()
-    setPackingListId(parsedPackingList)
+    try {
+      const foundPackingList = await fetch("http://localhost:9000/packingList/"+id)
+      const parsedPackingList = await foundPackingList.json()
+      setPackingListId(parsedPackingList)
+      console.log("parsedPL from getPackingList function", parsedPackingList)
+  } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(()=> {
     getPackingList(currentId)
+    console.log("is your useEffect running better catch it")
   }, [])
-
-*/
 
 
   return (
     <div>
     <br/>
-    <h1>Name of Packing List</h1>
-    <h2>{props.item}</h2>
+    <h2>{packingListId.name}</h2>
     <br/>
 
       <PackingListDetails  />
