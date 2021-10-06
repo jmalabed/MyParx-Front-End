@@ -21,6 +21,7 @@ import ParkHome from "./components/ParkHome";
 import About from "./components/About";
 import PackingList from "./components/PackingList";
 import Footer from "./components/Footer";
+import ParkEdit from "./components/ParkEdit";
 
 const App = () => {
   return (
@@ -57,6 +58,11 @@ const App = () => {
           exact
           path="/parklist/:id"
           render={(routerProps) => <ParkDetail {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/parklist/:id/edit"
+          render={(routerProps) => <ParkEdit {...routerProps} />}
         />
       </Switch>
 
