@@ -22,6 +22,7 @@ import About from "./components/About";
 import PackingList from "./components/PackingList";
 import Footer from "./components/Footer";
 import ParkEdit from "./components/ParkEdit";
+import Oops from "./components/Oops";
 import NewPackingList from "./components/NewPackingList";
 import PackingListDisplay from "./components/PackingListDisplay";
 import MakeList from "./components/MakeList"
@@ -88,6 +89,7 @@ const App = () => {
           path="/parklist/:id/edit"
           render={(routerProps) => <ParkEdit {...routerProps} />}
         />
+        <Route path="/" render={(routerProps) => <Oops {...routerProps} />} />
       </Switch>
 
       <Footer />
