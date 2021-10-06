@@ -3,6 +3,8 @@ import {useState, useEffect} from 'react'
 
 const NewPackingListItem = (props) => {
 
+  console.log("newpackinglistitem props", props.listName)
+
   /* useState / useEffect ? */
   const [input, setInput] = useState({
     item: '',
@@ -50,22 +52,23 @@ const NewPackingListItem = (props) => {
     newPackingListItem()
   }, [])
 
-  console.log("from newpackinglistitem props > ", props.listName._id)
+  // console.log("from newpackinglistitem props > ", props.listName._id)
+
+
+  // {/* form to add an item to the packing list */}
+  // <form onSubmit={handleSubmit}>
+  //   <label htmlFor="item">Add item to packing List</label>
+  //   <br/><input id="item" name="item" value={input.item} onChange={handleChange}/>
+  //
+  //   {/*this should auto grab id of packing list from parent component */}
+  //   <br/><input type="hidden" id="packingList" name="packingList" value={props.listName._id}/>
+  //
+  //   <br/><input type="submit" value="Add Item"/>
+  // </form>
 
   return (
     <div>
-      <h2>New Packing List Item</h2>
-
-      {/* form to add an item to the packing list */}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="item">Item</label>
-        <br/><input id="item" name="item" value={input.item} onChange={handleChange}/>
-
-        {/*this should auto grab id of packing list from parent component */}
-        <br/><input type="hidden" id="packingList" name="packingList" value={props.listName._id}/>
-
-        <br/><input type="submit" value="Add Item"/>
-      </form>
+    new packing list item
 
 
 

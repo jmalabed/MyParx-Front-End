@@ -12,10 +12,10 @@ import {
 const PackingList = (props) => {
   /* useState to set list of packingItems */
   const [packingLists, setPackingLists] = useState([])
+  const [packingList, setPackingList] = useState([])
 
-/* function for getBucketList */
 
-/* function for getPackingList */
+/* function for getPackingLists */
 const getPackingLists = async() => {
   try {
     const packingLists = await fetch("http://localhost:9000/packingList")
@@ -27,10 +27,26 @@ const getPackingLists = async() => {
   }
 }
 
+/* function for getPackingList */
+const getPackingList = async(id) => {
+  try {
+    const id = props.match.props.id
+    console.log(id)
+    const packingList = await fetch(`http://localhost:9000/packingList/${id}`)
+    const parsedPackingList = await packingList.json()
+    // console.log(parsedPackingListItems)
+    setPackingList(parsedPackingList)
+  } catch(err) {
+    console.log(err)
+  }
+}
+
 /* useEffect to only run query once */
 useEffect( ()=> {
-  getPackingLists()
+  getPackingLists();
+  getPackingList();
 }, [])
+
 
   return (
 
@@ -51,7 +67,7 @@ useEffect( ()=> {
           <tr key={item._id}>
             <td>{item.name}</td>
             <td>
-              <Link to='/MakeList' item={item}>Add Items to List</Link>
+              <Link to={'/MakeList/' +item._id} item={item} >Manage List</Link>
             </td>
           </tr>
         )}
