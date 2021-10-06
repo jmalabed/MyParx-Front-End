@@ -19,6 +19,7 @@ import ParkHome from "./components/ParkHome";
 import About from "./components/About";
 import PackingList from "./components/PackingList";
 import ParkEdit from "./components/ParkEdit";
+import Oops from "./components/Oops";
 
 const App = () => {
   return (
@@ -69,6 +70,7 @@ const App = () => {
           path="/parklist/:id/edit"
           render={(routerProps) => <ParkEdit {...routerProps} />}
         />
+        <Route path="/" render={(routerProps) => <Oops {...routerProps} />} />
       </Switch>
 
       <footer>
