@@ -6,7 +6,7 @@ const ParkList = (props) => {
 
   const getParks = async () => {
     try {
-      const parks = await fetch("http://localhost:9000/bucketList");
+      const parks = await fetch("https://project-two-backend.herokuapp.com/bucketList");
       const parsedParks = await parks.json();
       console.log(parsedParks);
       setParks(parsedParks);
@@ -20,7 +20,7 @@ const ParkList = (props) => {
   }, []);
 
   const editPark = async (id) => {
-    const updatedPark = await fetch(`http://localhost:9000/bucketList/${id}`, {
+    const updatedPark = await fetch(`https://project-two-backend.herokuapp.com/bucketList/${id}`, {
       method: "PUT",
       body: JSON.stringify({}),
       headers: {
@@ -32,7 +32,7 @@ const ParkList = (props) => {
   const deletePark = async (id) => {
     try {
       const deletedPark = await fetch(
-        "http://localhost:9000/bucketList/" + id,
+        "https://project-two-backend.herokuapp.com/bucketList/" + id,
         {
           method: "DELETE",
         }
