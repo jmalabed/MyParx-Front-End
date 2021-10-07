@@ -50,6 +50,36 @@ const PackingListDetails = (props) => {
     }
   };
 
+  const editItem = async (item) => {
+    console.log("edit");
+    console.log();
+    try {
+      const editedItem = await fetch(
+        "http://localhost:9000/packingListItem/" + item._id,
+        {
+          method: "PUT",
+          body: JSON.stringify({ isPacked: item.isPacked }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const parsedUpdatedItem = await editedItem.json();
+      // const newItemArrayWithUpdate = packingListItems.map((item) => {
+      //   if (item._id === parsedUpdatedItem._id) {
+      //     item = parsedUpdatedItem;
+      //   }
+      // });
+      // setPackingListItems(newItemArrayWithUpdate);
+      // console.log(packingListItems);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // set items in state
+  // setPackingListItems({ ...packingListItems, item: packed });
+
   /* useEffect to only run query once */
   useEffect(() => {
     getPackingListItems();
@@ -67,10 +97,7 @@ const PackingListDetails = (props) => {
       .map((item) => (
         <tr key={item._id}>
           <td>{item.item}</td>
-          <td>{item.isPacked ? "Yes" : "No"}</td>
-          <td>
-            <button>Edit</button>
-          </td>
+          <td onClick={() => editItem(item)}>{item.isPacked ? "Yes" : "No"}</td>
           <td>
             <button onClick={() => deleteItem(item._id)}>X</button>
           </td>
@@ -90,7 +117,6 @@ const PackingListDetails = (props) => {
                 <tr>
                   <th>item</th>
                   <th>packed</th>
-                  <th>edit</th>
                   <th>delete</th>
                 </tr>
               </thead>

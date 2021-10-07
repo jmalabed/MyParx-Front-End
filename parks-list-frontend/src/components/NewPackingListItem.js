@@ -49,6 +49,8 @@ const NewPackingListItem = (props) => {
     console.log("input from handleSubmit", input);
     /* also add prop to pass props.listName._id */
     newPackingListItem(input);
+    alert("Item added to list!");
+    setInput({ item: "", packingList: input.packingList });
   };
 
   // console.log("from newpackinglistitem props > ", props.listName._id)
