@@ -18,10 +18,26 @@ export default function Footer() {
           <Col md={4} xs={12} className="footer-column">
             Github
             <ul className="footer-list">
-              <li>Jared</li>
-              <li>Alex</li>
-              <li>Jess</li>
-              <li>Michael</li>
+              <li>
+                <a href="https://github.com/jmalabed" target="_blank">
+                  Jared
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/alxalves" target="_blank">
+                  Alex
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/jlafrank1" target="_blank">
+                  Jess
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/hamilton-mike" target="_blank">
+                  Michael
+                </a>
+              </li>
             </ul>
           </Col>
         </Row>

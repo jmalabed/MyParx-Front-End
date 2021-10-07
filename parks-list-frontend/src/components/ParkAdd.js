@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ParkAddListItem from "./ParkAddListItem";
-import { Container } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 
 import dotenv from "dotenv";
 require("dotenv").config();
@@ -60,7 +60,7 @@ const ParkAdd = (props) => {
           <input type="submit" value="Search" />
         </form>
 
-        <table>
+        <Table  striped bordered hover>
           <thead>
             <th>Name:</th>
             <th>State(s):</th>
@@ -68,7 +68,7 @@ const ParkAdd = (props) => {
             <th>Favorite</th>
           </thead>
           {parksList}
-        </table>
+        </Table>
       </div>
     </Container>
   );
