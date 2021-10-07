@@ -64,6 +64,8 @@ This project was created over the course of 5 days as part of the General Assemb
 
 ![Image of ERD](./assets/ERD.png)
 
-## Minimum Viable Product
-
 ## Future Work
+
+- Integrating weather API
+- Travel logistics, including Map API
+- Budget tracker to help plan for trips
