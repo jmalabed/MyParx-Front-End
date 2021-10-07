@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ParkAddListItem from "./ParkAddListItem";
+import { Container, Table } from "react-bootstrap";
 
 import dotenv from "dotenv";
 require("dotenv").config();
@@ -46,28 +47,30 @@ const ParkAdd = (props) => {
   const parksList = parks.map((park) => <ParkAddListItem parkprop={park} />);
 
   return (
-    <div>
-      <a href="/parklist">View Favorites</a>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="search parks"
-          name="query"
-          onChange={handleChange}
-        />
-        <input type="submit" value="Search" />
-      </form>
+    <Container className="top-gap">
+      <div>
+        <a href="/parklist">View Favorites</a>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="search parks"
+            name="query"
+            onChange={handleChange}
+          />
+          <input type="submit" value="Search" />
+        </form>
 
-      <table>
-        <thead>
-          <th>Name:</th>
-          <th>State(s):</th>
-          <th>Description:</th>
-          <th>Favorite</th>
-        </thead>
-        {parksList}
-      </table>
-    </div>
+        <Table  striped bordered hover>
+          <thead>
+            <th>Name:</th>
+            <th>State(s):</th>
+            <th>Description:</th>
+            <th>Favorite</th>
+          </thead>
+          {parksList}
+        </Table>
+      </div>
+    </Container>
   );
 };
 

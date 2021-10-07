@@ -75,7 +75,7 @@ const ParkEdit = (props) => {
   }, []);
   console.log(park);
   return (
-    <div>
+    <div className="top-gap">
       <h1>Edit Form</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
