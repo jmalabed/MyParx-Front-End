@@ -14,9 +14,13 @@ const ParkAddListItem = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
       };
-      const createdPark = await fetch("https://project-two-backend.herokuapp.com/bucketList", config);
+      const createdPark = await fetch(
+        "https://project-two-backend.herokuapp.com/bucketList",
+        config
+      );
       const parsedPark = await createdPark.json();
     } catch (err) {
       console.log(err);
@@ -25,7 +29,7 @@ const ParkAddListItem = (props) => {
 
   useEffect(() => {
     setForm({ name: props.parkprop.name });
-  }, [])
+  }, []);
 
   return (
     <tr>
