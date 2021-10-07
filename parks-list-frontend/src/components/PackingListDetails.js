@@ -105,7 +105,9 @@ const PackingListDetails = (props) => {
       .map((item) => (
         <tr key={item._id}>
           <td>{item.item}</td>
-          <td onClick={() => editItem(item)}>{item.isPacked ? "Yes" : "No"}</td>
+          <td onClick={() => editItem(item)}>
+            {item.isPacked ? <button>Yes</button> : <button>No</button>}
+          </td>
           <td>
             <button onClick={() => deleteItem(item._id)}>X</button>
           </td>
