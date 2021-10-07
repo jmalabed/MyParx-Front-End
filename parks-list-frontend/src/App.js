@@ -13,7 +13,7 @@ import {
   Figure,
 } from "react-bootstrap";
 import NavBar from "./components/NavBar";
-import Slider from "./components/Slider";
+// import Slider from "./components/Slider";
 import ParkList from "./components/ParkList";
 import ParkAdd from "./components/ParkAdd";
 import ParkDetail from "./components/ParkDetail";
@@ -32,7 +32,7 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <Slider className="top-gap" />
+      
       <Switch>
         <Route
           exact

@@ -6,7 +6,7 @@ import Jared from "../assets/jared.jpg";
 
 const About = (props) => {
   return (
-    <Container className="container mx-auto">
+    <Container className="container mx-auto top-gap">
       <Row>
         <Col xs={12} md={6}>
           <Card className="deplayerz mt-4 mb-2" id="alex">

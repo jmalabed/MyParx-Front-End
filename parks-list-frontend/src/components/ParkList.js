@@ -67,7 +67,7 @@ const ParkList = (props) => {
   ));
 
   return (
-    <div>
+    <div class="top-gap">
       <a href="/parklist/add">Add</a>
       <Table responsive>
         <thead>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 import ParkAddListItem from "./ParkAddListItem";
 
 import dotenv from "dotenv";
@@ -47,28 +47,30 @@ const ParkAdd = (props) => {
   const parksList = parks.map((park) => <ParkAddListItem parkprop={park} />);
 
   return (
-    <div>
-      <a href="/parklist">View Favorites</a>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="search parks"
-          name="query"
-          onChange={handleChange}
-        />
-        <input type="submit" value="Search" />
-      </form>
+    <Container className="top-gap">
+      <div>
+        <a href="/parklist">View Favorites</a>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="search parks"
+            name="query"
+            onChange={handleChange}
+          />
+          <input type="submit" value="Search" />
+        </form>
 
-      <table>
-        <thead>
-          <th>Name:</th>
-          <th>State(s):</th>
-          <th>Description:</th>
-          <th>Favorite</th>
-        </thead>
-        {parksList}
-      </table>
-    </div>
+        <table>
+          <thead>
+            <th>Name:</th>
+            <th>State(s):</th>
+            <th>Description:</th>
+            <th>Favorite</th>
+          </thead>
+          {parksList}
+        </table>
+      </div>
+    </Container>
   );
 };
 
