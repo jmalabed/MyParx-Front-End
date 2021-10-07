@@ -31,7 +31,7 @@ const NewPackingListItem = (props) => {
         },
       };
       const createdPackingListItem = await fetch(
-        "http://localhost:9000/packingListItem",
+        "https://project-two-backend.herokuapp.com/packingListItem",
         configs
       );
       const parsedPackingListItem = await createdPackingListItem.json();
