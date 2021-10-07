@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Table, Container } from "react-bootstrap";
 
-// console.log("import function", packingListFunc);
-
 const ParkList = (props) => {
   const [parks, setParks] = useState([]);
 
@@ -54,10 +52,17 @@ const ParkList = (props) => {
   const parkRow = parks.map((park) => (
     <tr>
       <td>{park.name}</td>
+      <td>packingList</td>
       <td>{park.visited ? "Yes" : "No"}</td>
       <td>Pets</td>
-      <td>{park.people}</td>
-      <td>Date of Visit</td>
+      <td>
+        <ul>
+          {park.people.map((person) => (
+            <li>{person}</li>
+          ))}
+        </ul>
+      </td>
+      <td>{park.date}</td>
       <td onClick={() => editPark(park._id)}>
         <button>
           <a href={"/parklist/" + park._id + "/edit"}>Edit</a>
@@ -85,7 +90,6 @@ const ParkList = (props) => {
           <thead>
             <tr>
               <th>Park Name</th>
-              <th>State</th>
               <th>PackingList</th>
               <th>Visited</th>
               <th>Pets</th>

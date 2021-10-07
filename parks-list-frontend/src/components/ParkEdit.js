@@ -11,8 +11,8 @@ const ParkEdit = (props) => {
   });
   const [packingLists, setPackingLists] = useState([]);
 
-  console.log('list', packingLists);
-  console.log('parks', park);
+  console.log("list", packingLists);
+  console.log("parks", park);
 
   const getPackingLists = async () => {
     try {
@@ -28,17 +28,13 @@ const ParkEdit = (props) => {
     }
   };
 
-  const packingListOptions = packingLists.map(list => {
-    return (
-      <option value={list.name}>{list.name}</option>
-    )
-  })
-
   //get park by id
   const getPark = async () => {
     try {
       const id = props.match.params.id;
-      const foundPark = await fetch("https://project-two-backend.herokuapp.com/bucketList/" + id);
+      const foundPark = await fetch(
+        "https://project-two-backend.herokuapp.com/bucketList/" + id
+      );
       if (foundPark.status === 200) {
         const parsedPark = await foundPark.json();
         setPark(parsedPark);
@@ -56,8 +52,7 @@ const ParkEdit = (props) => {
     // define update object using the updated things
     const update = { name, people, pets, packingList, visited, date };
     const id = props.match.params.id;
-    setPark(update)
-
+    setPark(update);
 
     try {
       const config = {
@@ -90,14 +85,14 @@ const ParkEdit = (props) => {
     console.log(park);
   };
 
-  // const checkBox = park.map(parkItem => {
-  //   console.log(parkItem);
-  // })
-
   useEffect(() => {
     getPark();
     getPackingLists();
   }, []);
+
+  const packingListOptions = packingLists.map((list) => {
+    return <option value={list.name}>{list.name}</option>;
+  });
 
   return (
     <div className="top-gap">
@@ -105,7 +100,13 @@ const ParkEdit = (props) => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
         <p>{park.name}</p>
-        <input type="hidden" name="name" id="name" value={park.name} onChange={handleChange} />
+        <input
+          type="hidden"
+          name="name"
+          id="name"
+          value={park.name}
+          onChange={handleChange}
+        />
         <br />
         <br />
         <label htmlFor="people">People: </label>
@@ -113,7 +114,9 @@ const ParkEdit = (props) => {
         <br />
         <br />
         <label htmlFor="packingList">Packing List: </label>
-        <select>{packingListOptions}</select>
+        <select id="packingList" name="packingList" value={"test"}>
+          {packingListOptions}
+        </select>
         <br />
         <br />
         <label htmlFor="pets">Pets:</label>
