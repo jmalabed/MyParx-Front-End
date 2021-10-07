@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ParkAddListItem = (props) => {
   const [form, setForm] = useState({});
 
   const handleSubmit = async (e) => {
-    console.log({ name: props.parkprop.name });
     setForm({ name: props.parkprop.name });
 
     e.preventDefault();
@@ -17,16 +16,17 @@ const ParkAddListItem = (props) => {
           "Content-Type": "application/json",
         },
       };
-      const createdPark = await fetch(
-        "https://project-two-backend.herokuapp.com/bucketList",
-        config
-      );
+      const createdPark = await fetch("https://project-two-backend.herokuapp.com/bucketList", config);
       const parsedPark = await createdPark.json();
     } catch (err) {
       console.log(err);
     }
   };
-  console.log(form, setForm);
+
+  useEffect(() => {
+    setForm({ name: props.parkprop.name });
+  }, [])
+
   return (
     <tr>
       <td>{props.parkprop.name}</td>

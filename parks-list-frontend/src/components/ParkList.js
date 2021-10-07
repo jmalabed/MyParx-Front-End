@@ -1,5 +1,7 @@
-import { Link, useState, useEffect } from "react";
-import { Table } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Table, Container, } from "react-bootstrap";
+
+console.log('import function', packingListFunc);
 
 const ParkList = (props) => {
   const [parks, setParks] = useState([]);
@@ -14,10 +16,6 @@ const ParkList = (props) => {
       console.log(err);
     }
   };
-
-  useEffect(() => {
-    getParks();
-  }, []);
 
   const editPark = async (id) => {
     const updatedPark = await fetch(`https://project-two-backend.herokuapp.com/bucketList/${id}`, {
@@ -47,7 +45,7 @@ const ParkList = (props) => {
       console.log(err);
     }
   };
-console.log(parks);
+
   const parkRow = parks.map((park) => (
     <tr>
       <td>{park.name}</td>
@@ -66,26 +64,36 @@ console.log(parks);
     </tr>
   ));
 
+  const checkBox = parks.map(park => {
+    console.log(parks);
+  })
+
+  useEffect(() => {
+    getParks();
+  }, []);
+
   return (
-    <div>
-      <a href="/parklist/add">Add</a>
-      <Table responsive>
-        <thead>
-          <tr>
-            <th>Park Name</th>
-            <th>State</th>
-            <th>PackingList</th>
-            <th>Visited</th>
-            <th>Pets</th>
-            <th>People</th>
-            <th>Date of Visit</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>{parkRow}</tbody>
-      </Table>
-    </div>
+    <Container className="top-gap">
+      <div>
+        <a href="/parklist/add">Add</a>
+        <Table responsive>
+          <thead>
+            <tr>
+              <th>Park Name</th>
+              <th>State</th>
+              <th>PackingList</th>
+              <th>Visited</th>
+              <th>Pets</th>
+              <th>People</th>
+              <th>Date of Visit</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>{parkRow}</tbody>
+        </Table>
+      </div>
+    </Container>
   );
 };
 export default ParkList;

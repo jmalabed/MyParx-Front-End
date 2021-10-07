@@ -2,7 +2,7 @@ import { Figure, Card, Button } from "react-bootstrap";
 
 const ParkDetail = (props) => {
   return (
-    <div>
+    <div className="top-gap">
       <p>test</p>
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src="holder.js/100px180" />

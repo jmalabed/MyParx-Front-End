@@ -4,18 +4,9 @@ import { useState, useEffect } from "react";
 import { Table, Row, Col, Container } from "react-bootstrap";
 
 const PackingListDetails = (props) => {
-  // do a get request for all list items associated with X packingList
-  // getFilteredItems
-  // if item.packingList == PROPS??
-
-  console.log("props from pL details", props);
-
-  /* useState to set list of packingItems */
   const [packingListItems, setPackingListItems] = useState([]);
 
-  /*  getPackingListItems
-  function to query backend for list of items associated with packinglist.
-  packinglist id comes from parent componenet NewPackingList */
+
   const getPackingListItems = async () => {
     try {
       const packingListItems = await fetch(
@@ -50,29 +41,36 @@ const PackingListDetails = (props) => {
     }
   };
 
-  const editItem = async (item) => {
+  const editItem = async (itemArg) => {
     console.log("edit");
+    console.log();
+    let { item, packingList, isPacked } = itemArg;
+    console.log(!isPacked);
+    const isPackedNot = !isPacked;
+    console.log(isPacked);
+    const update = { item, packingList, isPacked: isPackedNot };
+    console.log(update);
+    console.log(itemArg);
     try {
-      const editedItem = await fetch("https://project-two-backend.herokuapp.com/packingListItem/" + item._id, {
+      const editedItem = await fetch(
+        "https://project-two-backend.herokuapp.com/packingListItem/" +
+          itemArg._id,
+        {
           method: "PUT",
-          body: JSON.stringify({ isPacked: !item.isPacked }),
+          body: JSON.stringify(update),
           headers: {
             "Content-Type": "application/json",
           }
         }
       );
       const parsedUpdatedItem = await editedItem.json();
-      console.log('this hits', parsedUpdatedItem);
-
-      const newItemArrayWithUpdate = packingListItems.map((item) => {
-        console.log('item', item);
-        // if (item._id === parsedUpdatedItem._id) {
-        //   item = parsedUpdatedItem;
-        // }
-      });
+      console.log(parsedUpdatedItem);
       console.log(packingListItems);
-      console.log('new', newItemArrayWithUpdate);
-
+      const updatedPackingListItems = packingListItems.map((itemArg2) =>
+        itemArg2._id === parsedUpdatedItem._id ? parsedUpdatedItem : itemArg2
+      );
+      console.log(updatedPackingListItems);
+      setPackingListItems(updatedPackingListItems);
     } catch (err) {
       console.log(err);
     }
@@ -89,7 +87,7 @@ const PackingListDetails = (props) => {
   /* updatePackingListItem
   a function to update PackingListItem model boolean ispacked from true to false, etc */
 
-  console.log("packingListItems", packingListItems);
+  // console.log("packingListItems", packingListItems);
 
   const packingListItemVar =
     packingListItems &&

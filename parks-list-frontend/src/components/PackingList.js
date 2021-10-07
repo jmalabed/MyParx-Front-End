@@ -13,7 +13,7 @@ const PackingList = (props) => {
 
     <div>
       <br/>
-        <Container>
+        <Container className="top-gap">
           <Row className="justify-content-md-center">
             <Col xs md lg ="auto">
               <h2>List of available packing lists</h2>

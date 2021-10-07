@@ -9,6 +9,31 @@ const ParkEdit = (props) => {
     visited: false,
     date: "",
   });
+  const [packingLists, setPackingLists] = useState([]);
+
+  console.log('list', packingLists);
+  console.log('parks', park);
+
+  const getPackingLists = async () => {
+    try {
+      const packingLists = await fetch(
+        "https://project-two-backend.herokuapp.com/packingList"
+      );
+      const parsedPackingLists = await packingLists.json();
+      // console.log(parsedPackingListItems)
+      setPackingLists(parsedPackingLists);
+      console.log(parsedPackingLists);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const packingListOptions = packingLists.map(list => {
+    return (
+      <option value={list.name}>{list.name}</option>
+    )
+  })
+
   //get park by id
   const getPark = async () => {
     try {
@@ -54,15 +79,6 @@ const ParkEdit = (props) => {
   };
 
   const handleChange = (e) => {
-    // update park with updates from input box
-    // update edits on checkbox
-    // Change people to arrays
-// dogFriendly: false
-// isFav: false
-// name: "Devils Postpile"
-// people: ['a']
-// updatedAt: "2021-10-07T03:55:28.504Z"
-// vistied:
     let updated = "";
     if (e.target.name === "people") {
       updated = e.target.value.replace(/\s+/g, "").split(",");
@@ -74,14 +90,17 @@ const ParkEdit = (props) => {
     console.log(park);
   };
 
-  // edit park
+  // const checkBox = park.map(parkItem => {
+  //   console.log(parkItem);
+  // })
 
   useEffect(() => {
     getPark();
+    getPackingLists();
   }, []);
 
   return (
-    <div>
+    <div className="top-gap">
       <h1>Edit Form</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
@@ -94,7 +113,7 @@ const ParkEdit = (props) => {
         <br />
         <br />
         <label htmlFor="packingList">Packing List: </label>
-        <input name="packingList" id="packingList" onChange={handleChange} />
+        <select>{packingListOptions}</select>
         <br />
         <br />
         <label htmlFor="pets">Pets:</label>
@@ -126,3 +145,6 @@ const ParkEdit = (props) => {
   );
 };
 export default ParkEdit;
+// module.exports = {
+//   packingListOptions
+// }
