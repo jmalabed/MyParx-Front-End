@@ -16,12 +16,8 @@ const ParkAddListItem = (props) => {
           "Content-Type": "application/json",
         },
       };
-      const createdPark = await fetch(
-        "https://project-two-backend.herokuapp.com/bucketList",
-        config
-      );
-      // const parsedPark = await createdPark.json();
-      // console.log(parsedPark);
+      const createdPark = await fetch("https://project-two-backend.herokuapp.com/bucketList", config);
+      const parsedPark = await createdPark.json();
     } catch (err) {
       console.log(err);
     }
