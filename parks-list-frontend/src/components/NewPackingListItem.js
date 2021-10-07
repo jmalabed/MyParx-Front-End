@@ -9,6 +9,7 @@ const NewPackingListItem = (props) => {
   const [input, setInput] = useState({
     item: "",
     packingList: props.match.params.id,
+    isPacked: false
   });
 
   /* function to find packingList id/name? to pass through via a hidden field */
@@ -52,7 +53,7 @@ const NewPackingListItem = (props) => {
     /* also add prop to pass props.listName._id */
     newPackingListItem(input);
     alert("Item added to list!");
-    setInput({ item: "", packingList: input.packingList });
+    setInput({ item: "", packingList: input.packingList,  isPacked: input.isPacked});
   };
 
   // console.log("from newpackinglistitem props > ", props.listName._id)
