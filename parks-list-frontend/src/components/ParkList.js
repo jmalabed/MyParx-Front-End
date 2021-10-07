@@ -48,13 +48,15 @@ const ParkList = (props) => {
       console.log(err);
     }
   };
-
+  const dateFormat = (str) => {
+    const [yyyy, mm, dd, hh, mi] = str.split(/[/:\-T]/);
+    const formatted = `${mm}-${dd}-${yyyy}`;
+    return formatted;
+  };
   const parkRow = parks.map((park) => (
     <tr>
       <td>{park.name}</td>
-      <td>packingList</td>
-      <td>{park.visited ? "Yes" : "No"}</td>
-      <td>Pets</td>
+
       <td>
         <ul>
           {park.people.map((person) => (
@@ -62,7 +64,7 @@ const ParkList = (props) => {
           ))}
         </ul>
       </td>
-      <td>{park.date}</td>
+      <td>{dateFormat(park.date)}</td>
       <td onClick={() => editPark(park._id)}>
         <button>
           <a href={"/parklist/" + park._id + "/edit"}>Edit</a>
@@ -90,9 +92,7 @@ const ParkList = (props) => {
           <thead>
             <tr>
               <th>Park Name</th>
-              <th>PackingList</th>
-              <th>Visited</th>
-              <th>Pets</th>
+
               <th>People</th>
               <th>Date of Visit</th>
               <th>Edit</th>
