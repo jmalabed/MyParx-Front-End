@@ -13,7 +13,7 @@ import {
   Figure,
 } from "react-bootstrap";
 import NavBar from "./components/NavBar";
-import Slider from './components/Slider'
+import Slider from "./components/Slider";
 import ParkList from "./components/ParkList";
 import ParkAdd from "./components/ParkAdd";
 import ParkDetail from "./components/ParkDetail";
@@ -25,8 +25,8 @@ import ParkEdit from "./components/ParkEdit";
 import Oops from "./components/Oops";
 import NewPackingList from "./components/NewPackingList";
 import PackingListDisplay from "./components/PackingListDisplay";
-import MakeList from "./components/MakeList"
-import NewPackingListItem from "./components/NewPackingListItem"
+import MakeList from "./components/MakeList";
+import NewPackingListItem from "./components/NewPackingListItem";
 
 const App = () => {
   return (
