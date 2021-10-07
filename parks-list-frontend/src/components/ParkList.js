@@ -1,5 +1,7 @@
-import { Link, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Table, Container, } from "react-bootstrap";
+
+console.log('import function', packingListFunc);
 
 const ParkList = (props) => {
   const [parks, setParks] = useState([]);
@@ -15,10 +17,6 @@ const ParkList = (props) => {
     }
   };
 
-  useEffect(() => {
-    getParks();
-  }, []);
-
   const editPark = async (id) => {
     const updatedPark = await fetch(`https://project-two-backend.herokuapp.com/bucketList/${id}`, {
       method: "PUT",
@@ -27,6 +25,8 @@ const ParkList = (props) => {
         "Content-Type": "application/json",
       },
     });
+    const parsedPark = await updatedPark.json()
+    console.log(parsedPark);
   };
 
   const deletePark = async (id) => {
@@ -49,8 +49,6 @@ const ParkList = (props) => {
   const parkRow = parks.map((park) => (
     <tr>
       <td>{park.name}</td>
-      <td>state</td>
-      <td>PackingList from Jess Code</td>
       <td>{park.visited ? "Yes" : "No"}</td>
       <td>Pets</td>
       <td>{park.people}</td>
@@ -65,6 +63,14 @@ const ParkList = (props) => {
       </td>
     </tr>
   ));
+
+  const checkBox = parks.map(park => {
+    console.log(parks);
+  })
+
+  useEffect(() => {
+    getParks();
+  }, []);
 
   return (
     <Container className="top-gap">

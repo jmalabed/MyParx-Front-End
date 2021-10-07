@@ -4,18 +4,9 @@ import { useState, useEffect } from "react";
 import { Table, Row, Col, Container } from "react-bootstrap";
 
 const PackingListDetails = (props) => {
-  // do a get request for all list items associated with X packingList
-  // getFilteredItems
-  // if item.packingList == PROPS??
-
-  // console.log("props from pL details", props);
-
-  /* useState to set list of packingItems */
   const [packingListItems, setPackingListItems] = useState([]);
 
-  /*  getPackingListItems
-  function to query backend for list of items associated with packinglist.
-  packinglist id comes from parent componenet NewPackingList */
+
   const getPackingListItems = async () => {
     try {
       const packingListItems = await fetch(
@@ -69,7 +60,7 @@ const PackingListDetails = (props) => {
           body: JSON.stringify(update),
           headers: {
             "Content-Type": "application/json",
-          },
+          }
         }
       );
       const parsedUpdatedItem = await editedItem.json();
