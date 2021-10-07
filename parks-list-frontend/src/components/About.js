@@ -2,7 +2,7 @@ import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import Alex from '../assets/alex.jpg';
 import Jess from '../assets/jess.jpg';
 import Michael from '../assets/michael.jpeg';
-import Clown from '../assets/clown.jpeg';
+import Jared from "../assets/jared.jpg";
 
 const About = (props) => {
   return (
@@ -12,7 +12,7 @@ const About = (props) => {
           <Card className="deplayerz mt-4 mb-2" id="alex">
             <Card.Img variant="top" src={Alex} className="about-img" />
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>Alex</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
@@ -25,12 +25,12 @@ const About = (props) => {
           <Card className="deplayerz mt-4 mb-2" id="jared">
             <Card.Img
               variant="top"
-              src={Clown}
+              src={Jared}
               
               className="about-img"
             />
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>Jared</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
@@ -45,7 +45,7 @@ const About = (props) => {
           <Card className="deplayerz mt-2 mb-4" id="jess">
             <Card.Img variant="top" src={Jess}  className="about-img" />
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>Jess</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
@@ -58,7 +58,7 @@ const About = (props) => {
           <Card className="deplayerz mt-2 mb-4" id="michael">
             <Card.Img variant="top" src={Michael}  className="about-img" />
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>Michael</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
