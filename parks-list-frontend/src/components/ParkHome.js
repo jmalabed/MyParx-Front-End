@@ -1,5 +1,6 @@
-import { Stack, Row, Col, Container, Card, } from "react-bootstrap";
+import { Stack, Row, Col, Container, Card } from "react-bootstrap";
 import Slider from "../components/Slider";
+import {Link} from "react-router-dom"
 
 const ParkHome = (props) => {
   return (
@@ -12,7 +13,7 @@ const ParkHome = (props) => {
               {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
               <Card.Body>
                 <Card.Title>Parks List</Card.Title>
-                <Card.Text>Notable Park List Here</Card.Text>
+                <Link to= "/parklist"> Park List </Link>
               </Card.Body>
             </Card>
           </Col>
@@ -20,7 +21,8 @@ const ParkHome = (props) => {
             <Card>
               {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
               <Card.Body>
-                <Card.Title>Packing List List</Card.Title>
+                <Card.Title>Packing List</Card.Title>
+                <Link to= "./packingList/new"> New Packing List</Link>
                 <Card.Text>--</Card.Text>
               </Card.Body>
             </Card>
