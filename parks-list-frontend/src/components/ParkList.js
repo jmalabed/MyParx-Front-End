@@ -1,5 +1,5 @@
 import { Link, useState, useEffect } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Container } from "react-bootstrap";
 
 const ParkList = (props) => {
   const [parks, setParks] = useState([]);
@@ -67,25 +67,27 @@ const ParkList = (props) => {
   ));
 
   return (
-    <div class="top-gap">
-      <a href="/parklist/add">Add</a>
-      <Table responsive>
-        <thead>
-          <tr>
-            <th>Park Name</th>
-            <th>State</th>
-            <th>PackingList</th>
-            <th>Visited</th>
-            <th>Pets</th>
-            <th>People</th>
-            <th>Date of Visit</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>{parkRow}</tbody>
-      </Table>
-    </div>
+    <Container className="top-gap">
+      <div>
+        <a href="/parklist/add">Add</a>
+        <Table responsive>
+          <thead>
+            <tr>
+              <th>Park Name</th>
+              <th>State</th>
+              <th>PackingList</th>
+              <th>Visited</th>
+              <th>Pets</th>
+              <th>People</th>
+              <th>Date of Visit</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>{parkRow}</tbody>
+        </Table>
+      </div>
+    </Container>
   );
 };
 export default ParkList;
