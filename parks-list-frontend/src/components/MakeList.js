@@ -1,8 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Switch, Link, useLocation } from 'react-router-dom'
-import { Button, Table, Row, Col, Container } from "react-bootstrap";
-import NewPackingListItem from './NewPackingListItem'
+import { Button } from "react-bootstrap";
 import PackingListDetails from './PackingListDetails'
 
 // USING THIS TO ADD ITEMS TO A PACKING LIST
@@ -21,7 +19,7 @@ const MakeList = (props) => {
 
   const getPackingList = async (id) => {
     try {
-      const foundPackingList = await fetch("http://localhost:9000/packingList/"+id)
+      const foundPackingList = await fetch("https://project-two-backend.herokuapp.com/packingList/"+id)
       const parsedPackingList = await foundPackingList.json()
       setPackingListId(parsedPackingList)
       // console.log("parsedPL from getPackingList function", parsedPackingList)

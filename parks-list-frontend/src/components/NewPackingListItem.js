@@ -22,6 +22,7 @@ const NewPackingListItem = (props) => {
 
   /* function to create packingListItem */
   const newPackingListItem = async (data) => {
+
     try {
       const configs = {
         method: "POST",
@@ -31,12 +32,13 @@ const NewPackingListItem = (props) => {
         },
       };
       const createdPackingListItem = await fetch(
-        "http://localhost:9000/packingListItem",
+        "https://project-two-backend.herokuapp.com/packingListItem",
         configs
       );
       const parsedPackingListItem = await createdPackingListItem.json();
       console.log("parsed item in new f", parsedPackingListItem);
-      // props.history.push('/packingListItem')
+      const id = props.match.params.id
+      props.history.push(`/packingList/${id}`)
       // props.setBooks([...props.books, parsedBook])
     } catch (err) {
       console.log(err);
