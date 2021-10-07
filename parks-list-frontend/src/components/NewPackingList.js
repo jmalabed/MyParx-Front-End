@@ -47,7 +47,7 @@ const NewPackingList = (props) => {
   }
 
   return (
-    <div>
+    <div className="top-gap">
       <div>
       {/* first, create name of packing list
         this is a form to create the Name of a packing list */}
