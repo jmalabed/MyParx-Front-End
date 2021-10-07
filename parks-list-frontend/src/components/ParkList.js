@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
-import { Table, Container, } from "react-bootstrap";
+import { Table, Container } from "react-bootstrap";
 
-console.log('import function', packingListFunc);
+// console.log("import function", packingListFunc);
 
 const ParkList = (props) => {
   const [parks, setParks] = useState([]);
 
   const getParks = async () => {
     try {
-      const parks = await fetch("https://project-two-backend.herokuapp.com/bucketList");
+      const parks = await fetch(
+        "https://project-two-backend.herokuapp.com/bucketList"
+      );
       const parsedParks = await parks.json();
       console.log(parsedParks);
       setParks(parsedParks);
@@ -18,14 +20,17 @@ const ParkList = (props) => {
   };
 
   const editPark = async (id) => {
-    const updatedPark = await fetch(`https://project-two-backend.herokuapp.com/bucketList/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({}),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const parsedPark = await updatedPark.json()
+    const updatedPark = await fetch(
+      `https://project-two-backend.herokuapp.com/bucketList/${id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify({}),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const parsedPark = await updatedPark.json();
     console.log(parsedPark);
   };
 
@@ -64,9 +69,9 @@ const ParkList = (props) => {
     </tr>
   ));
 
-  const checkBox = parks.map(park => {
+  const checkBox = parks.map((park) => {
     console.log(parks);
-  })
+  });
 
   useEffect(() => {
     getParks();
