@@ -9,6 +9,7 @@ const NewPackingListItem = (props) => {
   const [input, setInput] = useState({
     item: "",
     packingList: props.match.params.id,
+    isPacked: false
   });
 
   /* function to find packingList id/name? to pass through via a hidden field */
@@ -22,6 +23,7 @@ const NewPackingListItem = (props) => {
 
   /* function to create packingListItem */
   const newPackingListItem = async (data) => {
+
     try {
       const configs = {
         method: "POST",
@@ -31,12 +33,13 @@ const NewPackingListItem = (props) => {
         },
       };
       const createdPackingListItem = await fetch(
-        "http://localhost:9000/packingListItem",
+        "https://project-two-backend.herokuapp.com/packingListItem",
         configs
       );
       const parsedPackingListItem = await createdPackingListItem.json();
       console.log("parsed item in new f", parsedPackingListItem);
-      // props.history.push('/packingListItem')
+      const id = props.match.params.id
+      props.history.push(`/packingList/${id}`)
       // props.setBooks([...props.books, parsedBook])
     } catch (err) {
       console.log(err);
@@ -50,7 +53,7 @@ const NewPackingListItem = (props) => {
     /* also add prop to pass props.listName._id */
     newPackingListItem(input);
     alert("Item added to list!");
-    setInput({ item: "", packingList: input.packingList });
+    setInput({ item: "", packingList: input.packingList,  isPacked: input.isPacked});
   };
 
   // console.log("from newpackinglistitem props > ", props.listName._id)

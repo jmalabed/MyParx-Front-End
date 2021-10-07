@@ -19,7 +19,7 @@ const PackingListDetails = (props) => {
   const getPackingListItems = async () => {
     try {
       const packingListItems = await fetch(
-        "http://localhost:9000/packingListItem"
+        "https://project-two-backend.herokuapp.com/packingListItem"
       );
       const parsedPackingListItems = await packingListItems.json();
       // console.log(parsedPackingListItems)
@@ -33,7 +33,7 @@ const PackingListDetails = (props) => {
     console.log("delete function");
     try {
       const deletedItem = await fetch(
-        "http://localhost:9000/packingListItem/" + id,
+        "https://project-two-backend.herokuapp.com/packingListItem/" + id,
         {
           method: "DELETE",
         }
@@ -55,7 +55,7 @@ const PackingListDetails = (props) => {
     console.log();
     try {
       const editedItem = await fetch(
-        "http://localhost:9000/packingListItem/" + item._id,
+        "https://project-two-backend.herokuapp.com/packingListItem/" + item._id,
         {
           method: "PUT",
           body: JSON.stringify({ isPacked: item.isPacked }),

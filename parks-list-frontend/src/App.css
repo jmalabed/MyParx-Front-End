@@ -53,3 +53,32 @@ ul {
   object-fit: cover;
   object-position: top;
 }
+
+.footer-list {
+  font-size: 0.6em;
+  font-weight: bold;
+
+  text-indent: none;
+
+    padding: 0;
+    list-style-type: none;
+}
+
+.footer-list li {
+  display: block;
+  text-indent: none;
+
+
+}
+
+.footer-column {
+  text-align: center;
+
+}
+
+.footer {
+  border-top: 1px solid #ccc;
+  /* margin: 0 2rem; */
+  padding-top: 1em;
+
+}
