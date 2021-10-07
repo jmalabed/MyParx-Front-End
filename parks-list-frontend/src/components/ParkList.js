@@ -27,6 +27,8 @@ const ParkList = (props) => {
         "Content-Type": "application/json",
       },
     });
+    const parsedPark = await updatedPark.json()
+    console.log(parsedPark);
   };
 
   const deletePark = async (id) => {
@@ -45,12 +47,10 @@ const ParkList = (props) => {
       console.log(err);
     }
   };
-
+console.log(parks);
   const parkRow = parks.map((park) => (
     <tr>
       <td>{park.name}</td>
-      <td>state</td>
-      <td>PackingList from Jess Code</td>
       <td>{park.visited ? "Yes" : "No"}</td>
       <td>Pets</td>
       <td>{park.people}</td>

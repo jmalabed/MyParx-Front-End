@@ -17,7 +17,7 @@ const ParkAdd = (props) => {
         `https://developer.nps.gov/api/v1/parks?q=${searchQuery.query}&api_key=${process.env.REACT_APP_API_KEY}`
       );
       const parsedParks = await allParks.json();
-      console.log(parsedParks);
+      console.log('json from fetch', parsedParks);
       // how to talk to Nat Park API????
       // console.log(parsedParks.data[0]);
       // console.log(parsedParks.data[0].name);

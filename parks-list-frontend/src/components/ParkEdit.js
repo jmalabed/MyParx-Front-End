@@ -28,10 +28,11 @@ const ParkEdit = (props) => {
     // destructure state variable and leave off the portions that are auto generated "_v, _id"
     const { name, people, pets, packingList, visited, date } = park;
     // make updates to the data after it is destructured here
-
     // define update object using the updated things
     const update = { name, people, pets, packingList, visited, date };
     const id = props.match.params.id;
+    setPark(update)
+
 
     try {
       const config = {
@@ -56,7 +57,12 @@ const ParkEdit = (props) => {
     // update park with updates from input box
     // update edits on checkbox
     // Change people to arrays
-
+// dogFriendly: false
+// isFav: false
+// name: "Devils Postpile"
+// people: ['a']
+// updatedAt: "2021-10-07T03:55:28.504Z"
+// vistied:
     let updated = "";
     if (e.target.name === "people") {
       updated = e.target.value.replace(/\s+/g, "").split(",");
@@ -73,32 +79,25 @@ const ParkEdit = (props) => {
   useEffect(() => {
     getPark();
   }, []);
-  console.log(park);
+
   return (
     <div>
       <h1>Edit Form</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
         <p>{park.name}</p>
-        <input
-          type="hidden"
-          name="name"
-          id="name"
-          value={park.name}
-          onChange={handleChange}
-        />
+        <input type="hidden" name="name" id="name" value={park.name} onChange={handleChange} />
         <br />
         <br />
         <label htmlFor="people">People: </label>
         <input name="people" id="people" onChange={handleChange} />
         <br />
         <br />
-        <select></select>
         <label htmlFor="packingList">Packing List: </label>
         <input name="packingList" id="packingList" onChange={handleChange} />
         <br />
         <br />
-        <label htmlFor="pets">Pets: </label>
+        <label htmlFor="pets">Pets:</label>
         <input type="checkbox" name="pets" id="pets" onChange={handleChange} />
         <br />
         <br />

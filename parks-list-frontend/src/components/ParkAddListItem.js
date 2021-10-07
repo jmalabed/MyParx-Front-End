@@ -22,12 +22,11 @@ const ParkAddListItem = (props) => {
         config
       );
       const parsedPark = await createdPark.json();
-      console.log(parsedPark);
     } catch (err) {
       console.log(err);
     }
   };
-
+  console.log(form, setForm);
   return (
     <tr>
       <td>{props.parkprop.name}</td>

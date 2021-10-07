@@ -52,26 +52,27 @@ const PackingListDetails = (props) => {
 
   const editItem = async (item) => {
     console.log("edit");
-    console.log();
     try {
-      const editedItem = await fetch(
-        "https://project-two-backend.herokuapp.com/packingListItem/" + item._id,
-        {
+      const editedItem = await fetch("https://project-two-backend.herokuapp.com/packingListItem/" + item._id, {
           method: "PUT",
-          body: JSON.stringify({ isPacked: item.isPacked }),
+          body: JSON.stringify({ isPacked: !item.isPacked }),
           headers: {
             "Content-Type": "application/json",
-          },
+          }
         }
       );
       const parsedUpdatedItem = await editedItem.json();
-      // const newItemArrayWithUpdate = packingListItems.map((item) => {
-      //   if (item._id === parsedUpdatedItem._id) {
-      //     item = parsedUpdatedItem;
-      //   }
-      // });
-      // setPackingListItems(newItemArrayWithUpdate);
-      // console.log(packingListItems);
+      console.log('this hits', parsedUpdatedItem);
+
+      const newItemArrayWithUpdate = packingListItems.map((item) => {
+        console.log('item', item);
+        // if (item._id === parsedUpdatedItem._id) {
+        //   item = parsedUpdatedItem;
+        // }
+      });
+      console.log(packingListItems);
+      console.log('new', newItemArrayWithUpdate);
+
     } catch (err) {
       console.log(err);
     }
