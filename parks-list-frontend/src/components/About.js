@@ -18,7 +18,6 @@ const About = (props) => {
                 Around these parks, I’m kind of a big style deal. Just ask Yogi
                 Bear.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -33,7 +32,6 @@ const About = (props) => {
                 photography, and camping. But when is it not park ranging
                 season?
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -60,7 +58,6 @@ const About = (props) => {
                 Part-time coder, full-time Marvel enthusiast. I like helping
                 people solve problems, spiderman, and the great outdoors.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
             </Card.Body>
           </Card>
         </Col>
