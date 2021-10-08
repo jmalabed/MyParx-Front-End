@@ -9,7 +9,7 @@ const NewPackingListItem = (props) => {
   const [input, setInput] = useState({
     item: "",
     packingList: props.match.params.id,
-    isPacked: false
+    isPacked: false,
   });
 
   /* function to find packingList id/name? to pass through via a hidden field */
@@ -23,7 +23,6 @@ const NewPackingListItem = (props) => {
 
   /* function to create packingListItem */
   const newPackingListItem = async (data) => {
-
     try {
       const configs = {
         method: "POST",
@@ -38,8 +37,8 @@ const NewPackingListItem = (props) => {
       );
       const parsedPackingListItem = await createdPackingListItem.json();
       console.log("parsed item in new f", parsedPackingListItem);
-      const id = props.match.params.id
-      props.history.push(`/packingList/${id}`)
+      const id = props.match.params.id;
+      props.history.push(`/packingList/${id}`);
       // props.setBooks([...props.books, parsedBook])
     } catch (err) {
       console.log(err);
@@ -53,13 +52,17 @@ const NewPackingListItem = (props) => {
     /* also add prop to pass props.listName._id */
     newPackingListItem(input);
     alert("Item added to list!");
-    setInput({ item: "", packingList: input.packingList,  isPacked: input.isPacked});
+    setInput({
+      item: "",
+      packingList: input.packingList,
+      isPacked: input.isPacked,
+    });
   };
 
   // console.log("from newpackinglistitem props > ", props.listName._id)
 
   return (
-    <div>
+    <div className="top-gap">
       {/* form to add an item to the packing list */}
       <form onSubmit={handleSubmit}>
         <label htmlFor="item">Add item to packing List</label>
