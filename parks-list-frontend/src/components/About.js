@@ -1,7 +1,7 @@
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import Alex from '../assets/alex.jpg';
-import Jess from '../assets/jess.jpg';
-import Michael from '../assets/michael.jpeg';
+import Alex from "../assets/alex.jpg";
+import Jess from "../assets/jess.jpg";
+import Michael from "../assets/michael.jpeg";
 import Jared from "../assets/jared.jpg";
 
 const About = (props) => {
@@ -14,8 +14,9 @@ const About = (props) => {
             <Card.Body>
               <Card.Title>Alex</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Webpage? I can style that. My hair? I can style that, too.
+                Around these parks, I’m kind of a big style deal. Just ask Yogi
+                Bear.
               </Card.Text>
               <Button variant="primary">Go somewhere</Button>
             </Card.Body>
@@ -27,8 +28,10 @@ const About = (props) => {
             <Card.Body>
               <Card.Title>Jared</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Jared is my name, and software development is my game. When it’s
+                not park ranging season, I enjoy bicycles, boardsports,
+                photography, and camping. But when is it not park ranging
+                season?
               </Card.Text>
               <Button variant="primary">Go somewhere</Button>
             </Card.Body>
@@ -42,11 +45,9 @@ const About = (props) => {
             <Card.Body>
               <Card.Title>Jess</Card.Title>
               <Card.Text>
-                Rowing coach turned roller skater turned software engineer.
-                Loves coding because it lights up the same parts of the brain as
-                working out a complex training plan for an athletic season.
+                “Remember kids, only you can prevent merge conflicts.” - Smokey
+                the Bear, pretty sure.
               </Card.Text>
-          
             </Card.Body>
           </Card>
         </Col>
@@ -56,8 +57,8 @@ const About = (props) => {
             <Card.Body>
               <Card.Title>Michael</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Part-time coder, full-time Marvel enthusiast. I like helping
+                people solve problems, spiderman, and the great outdoors.
               </Card.Text>
               <Button variant="primary">Go somewhere</Button>
             </Card.Body>
