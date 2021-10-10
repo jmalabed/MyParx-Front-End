@@ -6,7 +6,6 @@ import { Table, Row, Col, Container } from "react-bootstrap";
 const PackingListDetails = (props) => {
   const [packingListItems, setPackingListItems] = useState([]);
 
-
   const getPackingListItems = async () => {
     try {
       const packingListItems = await fetch(
@@ -60,7 +59,7 @@ const PackingListDetails = (props) => {
           body: JSON.stringify(update),
           headers: {
             "Content-Type": "application/json",
-          }
+          },
         }
       );
       const parsedUpdatedItem = await editedItem.json();
@@ -106,8 +105,9 @@ const PackingListDetails = (props) => {
       ));
 
   return (
-    <div>
+    <div className="top-gap">
       <br />
+
       <h4>PackingListDetails</h4>
 
       <Container>

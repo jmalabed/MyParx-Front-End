@@ -24,7 +24,8 @@ const NewPackingList = (props) => {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://myparx.surge.sh"
         }
       }
       const createdPackingList = await fetch("https://project-two-backend.herokuapp.com/packingList", configs)
@@ -47,7 +48,7 @@ const NewPackingList = (props) => {
   }
 
   return (
-    <div>
+    <div className="top-gap">
       <div>
       {/* first, create name of packing list
         this is a form to create the Name of a packing list */}

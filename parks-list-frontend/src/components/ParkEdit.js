@@ -99,7 +99,7 @@ const ParkEdit = (props) => {
       <h1>Edit Form</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
-        <p>{park.name}</p>
+        <h2>{park.name}</h2>
         <input
           type="hidden"
           name="name"
@@ -113,25 +113,22 @@ const ParkEdit = (props) => {
         <input name="people" id="people" onChange={handleChange} />
         <br />
         <br />
-        <label htmlFor="packingList">Packing List: </label>
+        {/*<label htmlFor="packingList">Packing List: </label>
         <select id="packingList" name="packingList" value={"test"}>
           {packingListOptions}
         </select>
         <br />
         <br />
-        <label htmlFor="pets">Pets:</label>
-        <input type="checkbox" name="pets" id="pets" onChange={handleChange} />
-        <br />
-        <br />
-        <label htmlFor="visited">Visited: </label>
+        <label htmlFor="pets">Pets:</label>*/}
+        <input type="hidden" name="pets" id="pets" onChange={handleChange} />
+        {/*<label htmlFor="visited">Visited: </label>*/}
         <input
-          type="checkbox"
+          type="hidden"
           name="visited"
           id="visited"
           onChange={handleChange}
         />
-        <br />
-        <br />
+
         <label htmlFor="date">Date of Visit: </label>
         <input
           type="date"

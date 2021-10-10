@@ -1,18 +1,25 @@
 import { Card, CardGroup, Container, Col, Row } from "react-bootstrap";
-
+import logo from "../logo/logo.png"
+import {Link} from "react-router-dom"
 export default function Footer() {
     return (
       <Container className="footer">
         <Row>
           <Col md={4} xs={12} className="footer-column">
-            Company Slogan goes here
+            <img className="logo" src={logo} />
           </Col>
           <Col md={4} xs={12} className="footer-column">
             Routes
             <ul className="footer-list">
-              <li>Home</li>
-              <li>National Parks</li>
-              <li>Packing Lists</li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/parklist">Parks</Link>
+              </li>
+              <li>
+                <Link to="/packinglist">PackingList</Link>
+              </li>
             </ul>
           </Col>
           <Col md={4} xs={12} className="footer-column">
