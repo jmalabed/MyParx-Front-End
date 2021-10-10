@@ -14,7 +14,7 @@ const ParkAddListItem = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
+          "origin": "*",
         },
       };
       const createdPark = await fetch(
